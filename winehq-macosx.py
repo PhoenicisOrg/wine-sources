@@ -70,5 +70,5 @@ for row in rows:
 
 versions = [upstream_x86, upstream_amd64, staging_x86, staging_amd64]
 
-with open('osx-official.json', 'w') as outfile:
+with open('winehq-macosx.json', 'w') as outfile:
     json.dump(versions, outfile)
