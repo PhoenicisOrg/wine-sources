@@ -3,6 +3,12 @@ from BeautifulSoup import BeautifulSoup
 import re
 import json
 
+import latest_gecko
+latest_gecko_url = latest_gecko.get_url()
+
+import latest_mono
+latest_mono_url = latest_mono.get_url()
+
 upstream_x86 = {
     'name': 'upstream-linux-x86',
     'description': "Upstream linux x86",
@@ -47,10 +53,10 @@ for row in rows:
             'url': base_url + href,
             'sha1sum': "",
             'geckoFile': None,
-            'geckoUrl': None,
+            'geckoUrl': latest_gecko_url,
             'geckoMd5': None,
             'monoFile': None,
-            'monoUrl': None,
+            'monoUrl': latest_mono_url,
             'monoMd5': None
         }
         # find correct category
