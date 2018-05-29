@@ -8,8 +8,8 @@ Create/update your `config.properties` (usually in `~/.Phoenicis`) with `webserv
 If Phoenicis does not show the correct versions, delete the cached `~/.Phoenicis/engines/wine/availableVersions.json`.
 
 ### Available Wine sources
-* Lutris (Linux): https://raw.githubusercontent.com/plata/phoenicis-wine-sources/master/lutris-linux.json
-* WineHQ (OSX): https://raw.githubusercontent.com/plata/phoenicis-wine-sources/master/winehq-macosx.json
+* Lutris (Linux): https://github.com/PhoenicisOrg/wine-sources/master/lutris-linux.json
+* WineHQ (OSX): https://github.com/PhoenicisOrg/wine-sources/master/winehq-macosx.json
 
 ### How it works
 * Python scripts read the available versions from the download websites
