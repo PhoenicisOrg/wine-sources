@@ -3,11 +3,11 @@ from BeautifulSoup import BeautifulSoup
 import re
 import json
 
-import latest_gecko
-latest_gecko_url = latest_gecko.get_url()
+import gecko
+import mono
 
-import latest_mono
-latest_mono_url = latest_mono.get_url()
+latest_gecko = gecko.get_latest()
+latest_mono = mono.get_latest()
 
 upstream_x86 = {
     'name': 'upstream-linux-x86',
@@ -48,20 +48,20 @@ for row in rows:
     # only wine packages
     if href.startswith(prefix) and (href.endswith('-x86_64.tar.gz') or href.endswith('-i686.tar.gz')):
         filename = href.replace(prefix, '')
+        staging = filename.startswith('staging-')
+        amd64 = filename.endswith('64.tar.gz')
         package = {
             'version': re.match(r'(staging-)?(.*)-(x86_64|i686)\.tar\.gz', filename).group(2),
             'url': base_url + href,
             'sha1sum': "",
-            'geckoFile': None,
-            'geckoUrl': latest_gecko_url,
+            'geckoFile': latest_gecko['filename-x86_64'] if amd64 else latest_gecko['filename-x86'],
+            'geckoUrl': latest_gecko['url-x86_64'] if amd64 else latest_gecko['url-x86'],
             'geckoMd5': None,
-            'monoFile': None,
-            'monoUrl': latest_mono_url,
+            'monoFile': latest_mono['filename'],
+            'monoUrl': latest_mono['url'],
             'monoMd5': None
         }
         # find correct category
-        staging = filename.startswith('staging-')
-        amd64 = filename.endswith('x86_64.tar.gz')
         if staging:
             if amd64:
                 staging_amd64['packages'].append(package)
