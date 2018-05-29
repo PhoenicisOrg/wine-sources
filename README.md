@@ -1,6 +1,6 @@
 Alternative Wine sources for Phoenicis
 
-[![Build Status](https://travis-ci.com/plata/phoenicis-wine-sources.svg?branch=master)](https://travis-ci.com/plata/phoenicis-wine-sources)
+[![Build Status](https://travis-ci.com/PhoenicisOrg/wine-sources.svg?branch=master)](https://travis-ci.com/PhoenicisOrg/wine-sources)
 
 ### How to use it
 Create/update your `config.properties` (usually in `~/.Phoenicis`) with `webservice.wine.url = <json-url>`.
