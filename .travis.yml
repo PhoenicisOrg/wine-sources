@@ -12,7 +12,7 @@ jobs:
       script:
         # push updates only for master (PR changes must be committed to master before they are taken into account)
         - if [ "$TRAVIS_BRANCH" == "master" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ]; then ./push_updates.sh; fi
-      virtualenv:
+      env:
         # to create secure for travis-ci.com
         # 1. create personal access token with public_repo permissions
         # 2. clone this repo (not a fork)
