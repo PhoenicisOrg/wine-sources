@@ -1,5 +1,5 @@
-import urllib2
-from BeautifulSoup import BeautifulSoup
+import requests
+from bs4 import BeautifulSoup
 from datetime import datetime
 import re
 
@@ -7,9 +7,9 @@ import re
 def get_latest():
     base_url = 'https://dl.winehq.org/wine/wine-mono'
 
-    response = urllib2.urlopen(base_url)
-    html = response.read()
-    soup = BeautifulSoup(html)
+    response = requests.get(base_url)
+    html = response.text
+    soup = BeautifulSoup(html, features="html5lib")
 
     # find table with gecko versions
     versions = []
