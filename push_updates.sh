@@ -27,7 +27,7 @@ fi
 git checkout master
 git add *.json
 git commit --message "Update .json files"
-if ! git push https://$GH_TOKEN@github.com/plata/phoenicis-wine-sources.git > /dev/null 2>&1; then
+if ! git push https://$GH_TOKEN@github.com/PhoenicisOrg/wine-sources.git > /dev/null 2>&1; then
     echo "could not push updates"
     exit 1
 fi
