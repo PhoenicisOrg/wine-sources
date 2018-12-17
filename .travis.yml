@@ -7,7 +7,6 @@ jobs:
   include:
     # Update JSON
     - stage: Update JSON
-      language: python
       install: pip install requests beautifulsoup4 html5lib
       script:
         # push updates only for master (PR changes must be committed to master before they are taken into account)
