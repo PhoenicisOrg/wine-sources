@@ -1,5 +1,5 @@
-import urllib2
-from BeautifulSoup import BeautifulSoup
+import requests
+from bs4 import BeautifulSoup
 import re
 import json
 
@@ -35,9 +35,9 @@ staging_amd64 = {
 
 base_url = 'https://dl.winehq.org/wine-builds/macosx/pool/'
 
-response = urllib2.urlopen(base_url)
-html = response.read()
-soup = BeautifulSoup(html)
+response = requests.get(base_url)
+html = response.text
+soup = BeautifulSoup(html, features="html5lib")
 
 # find table with Wine versions
 prefix = "portable-winehq-"
