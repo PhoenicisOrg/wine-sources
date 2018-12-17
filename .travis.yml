@@ -8,7 +8,7 @@ jobs:
     # Update JSON
     - stage: Update JSON
       language: python
-      install: pip install beautifulsoup4
+      install: pip install requests beautifulsoup4
       script:
         # push updates only for master (PR changes must be committed to master before they are taken into account)
         - if [ "$TRAVIS_BRANCH" == "master" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ]; then ./push_updates.sh; fi
